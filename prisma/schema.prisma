@@ -27,7 +27,8 @@ model Property {
   id                  String   @id @default(cuid())
   name                String
   location            String
-  brochure            String?
+  description         String?
+  brochureUrl         String?
   image               String?
   model3d             String?
   availableApartments Int      @default(0)

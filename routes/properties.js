@@ -12,7 +12,8 @@ router.post('/', adminAuth, async (req, res) => {
     const {
       name,
       location,
-      brochure,
+      description,
+      brochureUrl,
       image,
       model3d,
       availableApartments,
@@ -31,7 +32,8 @@ router.post('/', adminAuth, async (req, res) => {
       data: {
         name,
         location,
-        brochure: brochure || null,
+        description: description || null,
+        brochureUrl: brochureUrl || null,
         image: image || null,
         model3d: model3d || null,
         availableApartments: availableApartments || 0,
@@ -94,7 +96,7 @@ router.get('/', async (req, res) => {
 });
 
 // @route   GET /api/properties/:id
-// @desc    Get single property
+// @desc    Get single property by ID
 // @access  Public
 router.get('/:id', async (req, res) => {
   try {
@@ -131,7 +133,8 @@ router.put('/:id', adminAuth, async (req, res) => {
     const {
       name,
       location,
-      brochure,
+      description,
+      brochureUrl,
       image,
       model3d,
       availableApartments,
@@ -155,7 +158,8 @@ router.put('/:id', adminAuth, async (req, res) => {
       data: {
         name: name || existingProperty.name,
         location: location || existingProperty.location,
-        brochure: brochure !== undefined ? brochure : existingProperty.brochure,
+        description: description !== undefined ? description : existingProperty.description,
+        brochureUrl: brochureUrl !== undefined ? brochureUrl : existingProperty.brochureUrl,
         image: image !== undefined ? image : existingProperty.image,
         model3d: model3d !== undefined ? model3d : existingProperty.model3d,
         availableApartments: availableApartments !== undefined ? availableApartments : existingProperty.availableApartments,
